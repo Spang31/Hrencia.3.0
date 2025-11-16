@@ -1,0 +1,505 @@
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background-color:black;
+        }
+
+        /* ====== MENÚ PC OCULTO POR DEFECTO ====== */
+        .menu-pc {
+            display: none;
+        }
+
+        header {
+
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            position: fixed;
+            top: 0;
+            background: rgb(0, 0, 0);
+            z-index: 1000;
+
+            box-shadow:
+                0 0 12px rgba(0, 21, 255, 0.7),
+                0 0 25px rgba(0, 31, 144, 0.5),
+                0 0 45px rgba(0, 140, 255, 0.35);
+
+            border-bottom: 1px solid rgba(0,140,255,0.35);
+        }
+
+
+
+        .logo {
+
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 700;
+        font-size: 39px;
+        line-height: 0.8;
+        display: flex;
+        align-items: center;
+        letter-spacing: 1px;
+        color:rgb(233, 228, 219);
+        }
+
+        /* --------------------------
+        ICONO HAMBURGUESA / X
+        ---------------------------*/
+        .menu-icon {
+            width: 35px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .menu-icon span {
+            height: 4px;
+            background: white;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .menu-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(10px);
+        }
+        .menu-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px);
+        }
+
+        /* --------------------------
+        MENÚ LATERAL MÓVIL
+        ---------------------------*/
+        nav {
+            position: fixed;
+            top: 0;
+            left: -100%;    /* 🔵 FULL oculto sin dejar borde */
+            width: 75%;     /* O el ancho que quieras */
+
+            height: 100vh;
+            background: white;
+            padding-top: 90px;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            transition: 0.35s ease;
+            box-shadow: 4px 0 20px rgb(0, 9, 27);
+            z-index: 900;
+        }
+
+        nav.active {
+            left: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 22px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: #dcdcdc;
+            border-radius: 6px;
+        }
+
+        /* --------------------------
+        MENÚ PC
+        ---------------------------*/
+        @media (min-width: 900px) {
+
+            /* Ocultar menú móvil */
+            .menu-icon,
+            nav {
+                display: none;
+            }
+
+            /* Mostrar menú PC */
+            .menu-pc {
+                display: flex;
+                position: fixed;
+                top: 20px;
+                width: 100%;
+                justify-content: center;
+                z-index: 1000;
+            }
+
+            .menu-pc ul {
+                display: flex;
+                gap: 40px;
+                list-style: none;
+                background: rgba(218, 217, 213, 0.9);
+                padding: 12px 35px;
+                border-radius: 50px;
+                backdrop-filter: blur(10px);
+
+                box-shadow:
+                    0 2px 5px rgba(0, 21, 255, 0.7),
+                    0 4px 10px rgba(0, 30, 255, 0.5),
+                    0 6px 14px rgba(35, 42, 242, 0.35);
+            }
+
+            .menu-pc a {
+                text-decoration: none;
+                font-size: 17px;
+                color: black;
+                font-weight: 500;
+            }
+        }
+
+
+
+        .carrusel {
+            display: flex;
+            justify-content: center;   /* Centra horizontalmente */
+            align-items: center;       /* Centra verticalmente */
+            overflow: hidden;
+            margin-top: 100px;
+            position: relative;
+            width: 100%;
+            height: 86.3vh;              /* o la altura que quieras */
+        }
+
+
+        /* Cada imagen */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* recorte estilo KOAJ */
+        }
+
+        /* La activa */
+        .slide.active {
+            opacity: 1;
+        }
+
+
+        
+        /* Flechas KOAJ */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            background: white;
+            color: black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.12);
+        }
+
+        .left { left: 20px; }
+        .right { right: 20px; }
+
+        /* Versión móvil */
+        @media (max-width: 768px) {
+            .carrusel {
+                height: 75vh;
+            }
+
+            .arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+            }
+        }
+
+
+
+
+        /* ====== TEXTO ESTILO ADIDAS ====== */
+    .herencia-info {
+        padding: 60px 10%;
+        color: white;
+        text-align: left;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .herencia-info h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    .herencia-info p {
+        font-size: 17px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+        opacity: 0.88;
+    }
+
+
+    /* ====== FOOTER ====== */
+    .footer {
+        background: black;
+        padding: 45px 0;
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-content {
+        width: 90%;
+        max-width: 1100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .social img {
+        width: 27px;   /* puedes subir a 30–35 si los quieres más grandes */
+        filter: invert(1); /* Hace blanco tu SVG si originalmente es negro */
+        opacity: .85;
+        transition: 0.25s ease;
+    }
+
+    .social img:hover {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+
+    .footer-logo img {
+        width: 80px;
+        opacity: .9;
+    }
+
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+
+        .herencia-info {
+            padding: 45px 7%;
+        }
+
+    .herencia-info h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        color: rgb(233, 228, 219); /* ✔ COLOR IGUAL QUE EL LOGO */
+    }
+
+
+        .herencia-info p {
+            font-size: 15px;
+        }
+
+
+
+        .footer-content {
+            flex-direction: column;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .social a {
+            margin-right: 10px;
+        }
+    }
+
+    
+
+.catalogo {
+    padding: 110px 5%;
+    color: white;
+}
+
+/* Título de categoría */
+.categoria-titulo {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 42px;
+    margin: 40px 0 20px;
+    letter-spacing: 1px;
+    color: rgb(233, 228, 219);
+}
+
+
+/* GRID — 4 por fila en PC */
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 🔥 Fuerza 4 columnas */
+    gap: 20px;
+    width: 100%;
+}
+
+
+/* PRODUCTO CARD */
+.producto {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+/* IMAGEN */
+.producto img {
+    width: 100%;
+    aspect-ratio: 3 / 4.5;   /* 🔥 SE VE COMPLETA EN TODAS LAS PANTALLAS */
+    object-fit: cover;
+    transition: .35s ease;
+}
+
+/* TEXTO EXÓTICO */
+.producto span {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    color: white;
+    opacity: 0;
+    transition: .3s;
+    text-shadow: 0 0 7px rgba(0,0,0,0.8);
+}
+
+/* EFECTO */
+.producto:hover img {
+    transform: scale(1.08);
+    filter: brightness(55%);
+}
+.producto:hover span {
+    opacity: 1;
+}
+
+
+
+/* ====== RESPONSIVE ======*/
+
+/* TABLET */
+@media (max-width: 920px) {
+    .categoria-titulo {
+        font-size: 36px;
+        text-align: center;
+    }
+}
+
+/* MÓVIL */
+/* MÓVIL (2 por fila SIEMPRE) */
+@media (max-width: 600px) {
+    .categoria-grid {
+        grid-template-columns: repeat(2, 1fr); /* 🔥 Fuerza 2 por fila */
+        gap: 14px;
+    }
+
+    .producto img {
+        aspect-ratio: 3 / 5; /* se ve toda la persona */
+    }
+
+    .producto span {
+        font-size: 24px;
+    }
+}
+
+
+
+/* EFECTOS */
+.producto:hover img {
+    transform: scale(1.08);
+    filter: brightness(55%);
+}
+
+.producto:hover span {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+.catalogo {
+    padding: 80px 8%;
+    text-align: center;
+    color: white;
+}
+
+.catalogo h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 54px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    color: rgb(233, 228, 219);
+}
+
+/* GRID */
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+/* CARD */
+.cat-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+}
+
+/* ❤️ Fix: esta altura NO distorsiona nada */
+.cat-item img {
+    width: 100%;
+    height: 500px; /* puedes subir a 600 si quieres */
+    object-fit: cover;
+    transition: .35s ease;
+    display: block;
+}
+
+/* EFECTO HOVER */
+.cat-item:hover img {
+    transform: scale(1.08);
+    filter: brightness(60%);
+}
+
+.cat-item span {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 42px;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 0 8px rgba(0,0,0,0.9);
+}
