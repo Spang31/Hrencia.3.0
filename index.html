@@ -2,27 +2,30 @@
 <html lang="es">
 <head>
 
-    <link rel="icon" href="Favicon.png  ">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herencia</title>
 
-    <!-- FUENTES GOOGLE -->
+    <!-- FAVICON -->
+    <link rel="icon" href="Imagenes/Favicon.png">
 
-
+    <!-- FUENTE GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-    <!-- ARCHIVO CSS -->
-<link rel="stylesheet" href="Assets/estilos.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="Assets/estilos.css">
 
 </head>
-<body>
+
+<body ondragstart="return false" 
+      onselectstart="return false" 
+      oncontextmenu="return false">
 
 <header>
 
-    <!-- 3 RAYAS DEL MENÚ MÓVIL -->
+    <!-- MENÚ MÓVIL -->
     <div class="menu-icon" id="menuBtn">
         <span></span>
         <span></span>
@@ -33,94 +36,89 @@
 
 </header>
 
-<!-- MENU LATERAL -->
+<!-- MENÚ LATERAL -->
 <nav id="menu">
     <a href="index.html">Inicio</a>
-        <a href="/Assets/CategoriaH.html">Hombre</a>
-                <a href="/Assets/CategoriaM.html">Mujer</a>
-
-
+    <a href="Assets/CategoriaH.html">Hombre</a>
+    <a href="Assets/CategoriaM.html">Mujer</a>
 </nav>
 
 <!-- MENÚ PC -->
 <div class="menu-pc">
     <ul>
         <li><a href="index.html">Inicio</a></li>
-                <li><a href="/Assets/CategoriaH.html">Hombre</a></li>
-                        <a href="/Assets/CategoriaM.html">Mujer</a>
-
-
+        <li><a href="Assets/CategoriaH.html">Hombre</a></li>
+        <li><a href="Assets/CategoriaM.html">Mujer</a></li>
     </ul>
 </div>
 
+<!-- CARRUSEL -->
 <div class="carrusel">
 
     <div class="slide active">
-        <img src="/Imagenes/eeeee.png">
+        <img src="Imagenes/eeeee.png" alt="Slide 1">
     </div>
 
     <div class="slide">
-        <img src="/Imagenes/eeeee.png">
+        <img src="Imagenes/eeeee.png" alt="Slide 2">
     </div>
 
     <div class="slide">
-          <img src="/Imagenes/eeeee.png">
+        <img src="Imagenes/eeeee.png" alt="Slide 3">
     </div>
 
     <!-- Flechas -->
     <div class="arrow left" id="prevBtn">❮</div>
     <div class="arrow right" id="nextBtn">❯</div>
 
-
-
-
-
-
-
 </div>
 
-
+<!-- SECCIÓN INFORMACIÓN -->
 <section class="herencia-info">
     <h2>Herencia, Una historia para contar</h2>
+
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium asperiores, porro ducimus dolor quia magnam, perferendis dolorum id ipsa eligendi est eveniet, accusamus quo? Id nemo laudantium quia? Adipisci, recusandae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium asperiores, porro ducimus dolor quia magnam.
     </p>
 
     <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, illum voluptas voluptatibus omnis excepturi totam, sed impedit nam, temporibus praesentium odit in eos! Quasi nihil suscipit eum quis ex enim.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque illum voluptas voluptatibus omnis.
     </p>
 
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corporis nobis voluptatibus sapiente ad ullam quibusdam porro maxime tenetur alias provident id perspiciatis, ipsum quod natus, ratione possimus nisi distinctio.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corporis nobis voluptatibus.
     </p>
 
     <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ducimus corporis nisi architecto accusantium omnis repellat placeat perspiciatis doloremque minima optio velit repudiandae a, debitis impedit sapiente illo nostrum odio.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ducimus corporis nisi architecto.
     </p>
 </section>
 
-
+<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-content">
 
         <!-- Redes sociales -->
         <div class="social">
-            <a href="https://www.instagram.com/her3ncia/"><img src="/svg/instagram.svg" alt="Instagram"></a>
-            <a href="whatsapp.svg"><img src="/svg/whatsapp.svg" alt="whatsapp"></a>
+            <a href="https://www.instagram.com/her3ncia/" target="_blank">
+                <img src="svg/instagram.svg" alt="Instagram">
+            </a>
+
+            <a href="#">
+                <img src="svg/whatsapp.svg" alt="WhatsApp">
+            </a>
         </div>
 
-        <!-- Logo centrado -->
+        <!-- Logo -->
         <div class="footer-logo">
-            <img src="/Imagenes/Logo sin fondo.png" alt="Herencia">
+            <img src="Imagenes/Logo sin fondo.png" alt="Herencia">
         </div>
 
     </div>
 </footer>
 
-
-<!-- ARCHIVO JS -->
+<!-- JS -->
 <script src="Assets/lenguaje.js"></script>
 
-<body ondragstart="return false" onselectstart="return false" oncontextmenu="return false"></body>
 </body>
 </html>
