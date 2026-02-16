@@ -132,14 +132,15 @@
             }
 
             /* Mostrar menú PC */
-            .menu-pc {
-                display: flex;
-                position: fixed;
-                top: 20px;
-                width: 100%;
-                justify-content: center;
-                z-index: 1000;
-            }
+.menu-pc {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    justify-content: center;
+    z-index: 1000;
+}
+
 
             .menu-pc ul {
                 display: flex;
