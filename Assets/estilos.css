@@ -1,169 +1,214 @@
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background-color:black;
-        }
 
-        /* ====== MENÚ PC OCULTO POR DEFECTO ====== */
-        .menu-pc {
-            display: none;
-        }
+/* ======================================
+   BASE
+====================================== */
 
-        header {
-
-            width: 100%;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 15px;
-            position: fixed;
-            top: 0;
-            background: rgb(0, 0, 0);
-            z-index: 1000;
-
-            box-shadow:
-                0 0 12px rgba(0, 21, 255, 0.7),
-                0 0 25px rgba(0, 31, 144, 0.5),
-                0 0 45px rgba(0, 140, 255, 0.35);
- 
-
-            border-bottom: 1px solid rgba(0,140,255,0.35);
-        }
-
-
-
-        .logo {
-
-        font-family: "Bebas Neue", sans-serif;
-        font-weight: 700;
-        font-size: 39px;
-        line-height: 0.8;
-        display: flex;
-        align-items: center;
-        letter-spacing: 1px;
-        color:rgb(233, 228, 219);
-        }
-
-        /* --------------------------
-        ICONO HAMBURGUESA / X
-        ---------------------------*/
-        .menu-icon {
-            width: 35px;
-            height: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .menu-icon span {
-            height: 4px;
-            background: white;
-            border-radius: 5px;
-            transition: 0.3s ease;
-        }
-
-        .menu-icon.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(10px);
-        }
-        .menu-icon.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-icon.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-10px);
-        }
-
-        /* --------------------------
-        MENÚ LATERAL MÓVIL
-        ---------------------------*/
-        nav {
-            position: fixed;
-            top: 0;
-            left: -100%;  
-            width: 50%;    
-
-            height: 100vh;
-            background: white;
-            padding-top: 90px;
-            padding-left: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-            transition: 0.35s ease;
-            box-shadow: 4px 0 20px rgb(0, 9, 27);
-            z-index: 900;
-        }
-
-        nav.active {
-            left: 0;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: black;
-            font-size: 22px;
-            font-weight: 500;
-            position: relative;
-        }
-
-        nav a::before {
-            content: "";
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 30px;
-            background: #dcdcdc;
-            border-radius: 6px;
-        }
-
-        /* --------------------------
-        MENÚ PC
-        ---------------------------*/
-        @media (min-width: 900px) {
-
-            /* Ocultar menú móvil */
-            .menu-icon,
-            nav {
-                display: none;
-            }
-
-            /* Mostrar menú PC */
-.menu-pc {
-    display: flex;
-    position: fixed;
-    top: 20px;
-    width: 100%;
-    justify-content: center;
-    z-index: 1000;
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: black;
 }
 
 
-            .menu-pc ul {
-                display: flex;
-                gap: 40px;
-                list-style: none;
-                background: rgba(218, 217, 213, 0.9);
-                padding: 12px 35px;
-                border-radius: 50px;
-                backdrop-filter: blur(10px);
+/* ======================================
+   LOGO
+====================================== */
 
-                box-shadow:
-                    0 2px 5px rgba(0, 21, 255, 0.7),
-                    0 4px 10px rgba(0, 30, 255, 0.5),
-                    0 6px 14px rgba(0, 8, 225, 0.35);
-            }
+.logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 39px;
+    line-height: 0.8;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1px;
+    color: rgb(233, 228, 219);
+}
 
-            .menu-pc a {
-                text-decoration: none;
-                font-size: 17px;
-                color: black;
-                font-weight: 500;
-            }
-        }
+
+/* ======================================
+   MENÚ PC OCULTO POR DEFECTO
+====================================== */
+
+.menu-pc {
+    display: none;
+}
+
+
+/* ======================================
+   HEADER
+====================================== */
+
+header {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    position: fixed;
+    top: 0;
+    background: rgb(0, 0, 0);
+    z-index: 1000;
+
+    box-shadow:
+        0 0 12px rgba(0, 21, 255, 0.7),
+        0 0 25px rgba(0, 31, 144, 0.5),
+        0 0 45px rgba(0, 140, 255, 0.35);
+
+    border-bottom: 1px solid rgba(0, 140, 255, 0.35);
+}
+
+
+/* ======================================
+   ICONO HAMBURGUESA / X
+====================================== */
+
+.cart-icon {
+    margin-left: auto;
+    position: relative;
+    cursor: pointer;
+    margin-right: 50px; /* 🔥 esto lo mete hacia adentro */
+}
+
+
+.cart-icon img {
+    width: 26px;
+    height: 26px;
+}
+
+#cartCount {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+
+.menu-icon {
+    width: 35px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.menu-icon span {
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+
+/* ======================================
+   MENÚ LATERAL MÓVIL
+====================================== */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100vh;
+    background: white;
+    padding-top: 90px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    transition: 0.35s ease;
+    box-shadow: 4px 0 20px rgb(0, 9, 27);
+    z-index: 900;
+}
+
+nav.active {
+    left: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 30px;
+    background: #dcdcdc;
+    border-radius: 6px;
+}
+
+
+/* ======================================
+   MENÚ PC
+====================================== */
+
+@media (min-width: 900px) {
+
+    /* Ocultar menú móvil */
+    .menu-icon,
+    nav {
+        display: none;
+    }
+
+    /* Mostrar menú PC */
+    .menu-pc {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        width: 100%;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .menu-pc ul {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+        background: rgba(218, 217, 213, 0.9);
+        padding: 12px 35px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+
+        box-shadow:
+            0 2px 5px rgba(0, 21, 255, 0.7),
+            0 4px 10px rgba(0, 30, 255, 0.5),
+            0 6px 14px rgba(0, 8, 225, 0.35);
+    }
+
+    .menu-pc a {
+        text-decoration: none;
+        font-size: 17px;
+        color: black;
+        font-weight: 500;
+    }
+}
 
 
 
@@ -340,90 +385,130 @@
    SECCIÓN CAMISETAS / CATÁLOGO
 =================================*/
 
-.catalogo {
-    padding: 110px 5%;
-    color: white;
-    text-align: center;
-}
+    .catalogo {
+        padding: 110px 5%;
+        color: white;
+        text-align: center;
+    }
 
-/* TÍTULO */
-.categoria-titulo,
-.catalogo h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 48px;
-    margin: 40px 0 30px;
-    letter-spacing: 1px;
-    color: rgb(233, 228, 219);
-}
+    /* TÍTULO */
+    .categoria-titulo,
+    .catalogo h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 48px;
+        margin: 40px 0 30px;
+        letter-spacing: 1px;
+        color: rgb(233, 228, 219);
+    }
 
-/* ===============================
-   GRID PRODUCTOS CAMISETAS
-=================================*/
+    /* ===============================
+    GRID PRODUCTOS CAMISETAS
+    =================================*/
 
-.categoria-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    width: 100%;
-}
+    .categoria-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+        width: 100%;
+    }
 
-/* PRODUCTO */
-.producto {
-    position: relative;
-    overflow: hidden;
-    border-radius: 14px;
-    cursor: pointer;
-}
+    /* PRODUCTO */
+    .producto {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+        cursor:auto;
+    }
 
-/* ===== SLIDER ===== */
 
-.producto .slider {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 3 / 4.5;
-    overflow: hidden;
-}
 
-/* IMÁGENES */
-.producto .slider img {
+/* BOTÓN CARRITO SUPERIOR DERECHA */
+.producto .add-to-cart {
+    
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.75);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:grab;
     opacity: 0;
-    transition: opacity .5s ease, transform .35s ease, filter .35s ease;
+    transition: opacity .3s ease, transform .2s ease;
+    z-index: 4;
 }
 
-/* IMAGEN ACTIVA */
-.producto .slider img.active {
-    opacity: 1;
-    z-index: 1;
+/* Imagen dentro */
+.producto .add-to-cart img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
-/* PRECIO */
-.producto span {
-    position: absolute;
-    bottom: 14px;
-    left: 14px;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 26px;
-    color: white;
-    opacity: 0;
-    transition: opacity .3s ease;
-    text-shadow: 0 0 10px rgba(0,0,0,.9);
-    z-index: 2;
-}
-
-/* HOVER */
-.producto:hover .slider img.active {
-    transform: scale(1.08);
-    filter: brightness(55%);
-}
-
-.producto:hover span {
+/* Hover PC */
+.producto:hover .add-to-cart {
     opacity: 1;
 }
+
+.producto .add-to-cart:hover {
+    transform: scale(1.12);
+}
+
+
+
+    /* ===== SLIDER ===== */
+
+    .producto .slider {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4.5;
+        overflow: hidden;
+    }
+
+    /* IMÁGENES */
+    .producto .slider img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity .5s ease, transform .35s ease, filter .35s ease;
+    }
+
+    /* IMAGEN ACTIVA */
+    .producto .slider img.active {
+        opacity: 1;
+        z-index: 1;
+    }
+
+    /* PRECIO */
+    .producto span {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 26px;
+        color: white;
+        opacity: 0;
+        transition: opacity .3s ease;
+        text-shadow: 0 0 10px rgba(0,0,0,.9);
+        z-index: 2;
+    }
+
+    /* HOVER */
+    .producto:hover .slider img.active {
+        transform: scale(1.08);
+        filter: brightness(55%);
+    }
+
+    .producto:hover span {
+        opacity: 1;
+    }
 
 /* ===============================
    RESPONSIVE
@@ -442,15 +527,45 @@
 
 /* Móvil */
 @media (max-width: 600px) {
+
+    .producto .add-to-cart {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+}
+
+
     .categoria-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
     }
 
+    /* PRECIO */
     .producto span {
-        font-size: 22px;
+        font-size: 18px;
+        opacity: 1;           /* siempre visible */
+        bottom: 12px;
+        left: 10px;
+    }
+
+    /* BOTÓN CARRITO */
+    .producto .add-to-cart {
+        opacity: 1;           /* siempre visible */
+        width: 32px;
+        height: 32px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    /* Quitar efecto hover oscuro en móvil */
+    .producto:hover .slider img.active {
+        transform: none;
+        filter: none;
     }
 }
+
 
 /* ===============================
    GRID CATEGORÍAS (Inicio)
@@ -498,4 +613,25 @@
     letter-spacing: 1px;
     color: white;
     text-shadow: 0 0 8px rgba(0,0,0,0.9);
+}
+
+
+
+
+/* MÓVIL */
+@media (max-width: 600px) {
+    .categorias-grid {
+        grid-template-columns: 1fr; /* 👈 SOLO 1 */
+        gap: 20px;
+    }
+
+    .cat-item img {
+        height: 350px;
+    }
+
+    .cat-item span {
+        font-size: 28px;
+        bottom: 18px;
+        left: 18px;
+    }
 }
